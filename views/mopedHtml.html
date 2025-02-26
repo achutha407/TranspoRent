@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moped Rentals - TranspoRent</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assests/css/mopedCss.css">
+    <script>
+        function saveSelection(category, name, price, imagePath) {
+            const selectionDetails = {
+                category: category,
+                name: name,
+                price: price,
+                image: imagePath // Save the exact path you need
+            };
+            localStorage.setItem("selectedVehicle", JSON.stringify(selectionDetails)); // Save to localStorage
+            window.location.href = "bookingHtml.html"; // Redirect to booking details page
+        }
+    </script>
+</head>
+<body background="assests/images/background/moped.jpeg">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <h1 class="oswald-header"><b>Moped</b></h1>
+    </header>
+
+    <!-- Cycle Options -->
+    <main class="cycle-selection">
+        <div class="grid-container">
+            <!-- Cycle 1 -->
+            <div class="grid-item" onclick="saveSelection('Moped 125cc', 'Acces 125', 500 , 'assests/images/vehices/mopeds/access.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/access.png" alt="Mountain Bike">
+                    <p><strong>Access 125</strong></p>
+                    <p>&#8377; 500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 2 -->
+            <div class="grid-item" onclick="saveSelection('Moped 110cc', 'Cliq 110', 450 , 'assests/images/vehices/mopeds/cliq.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/cliq.png" alt="Road Bike">
+                    <p><strong>Cliq 110</strong></p>
+                    <p>&#8377; 450/day</p>
+                </div>
+            </div>
+            <!-- Cycle 3 -->
+            <div class="grid-item" onclick="saveSelection('Street Moped', 'nTorq', 550 , 'assests/images/vehices/mopeds/ntorq.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/ntorq.png" alt="Hybrid Bike">
+                    <p><strong>nTorq</strong></p>
+                    <p>&#8377; 550/day</p>
+                </div>
+            </div>
+            <!-- Cycle 4 -->
+            <div class="grid-item" onclick="saveSelection('Family Moped', 'Jupiter', 500 , 'assests/images/vehices/mopeds/pngwing.com 2 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/pngwing.com 2 - Copy (2).png" alt="BMX">
+                    <p><strong>Jupiter</strong></p>
+                    <p>&#8377; 500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 5 -->
+            <div class="grid-item" onclick="saveSelection('Daily ', 'Elite', 400 , 'assests/images/vehices/mopeds/pngwing.com 3 - Copy (3).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/pngwing.com 3 - Copy (3).png" alt="Folding Bike">
+                    <p><strong>Elite</strong></p>
+                    <p>&#8377; 400/day</p>
+                </div>
+            </div>
+            <!-- Cycle 6 -->
+            <div class="grid-item" onclick="saveSelection('Moped', 'Duet', 450 , 'assests/images/vehices/mopeds/pngwing.com 4 - Copy (3).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/pngwing.com 4 - Copy (3).png" alt="Cruiser Bike">
+                    <p><strong>Duet</strong></p>
+                    <p>&#8377; 450/day</p>
+                </div>
+            </div>
+            <!-- Cycle 7 -->
+            <div class="grid-item" onclick="saveSelection('Moped 112cc', 'Wego', 400 , 'assests/images/vehices/mopeds/pngwing.com 7 - Copy (4).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/pngwing.com 7 - Copy (4).png" alt="Electric Bike">
+                    <p><strong>Wego</strong></p>
+                    <p>&#8377; 400/day</p>
+                </div>
+            </div>
+            <!-- Cycle 8 -->
+            <div class="grid-item" onclick="saveSelection('110 Segment', 'Maestro 125', 500 , 'assests/images/vehices/mopeds/pngwing.com 8 - Copy (3).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/pngwing.com 8 - Copy (3).png" alt="Touring Bike">
+                    <p><strong>Maestro 110</strong></p>
+                    <p>&#8377; 500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 9 -->
+            <div class="grid-item" onclick="saveSelection('Street Racer', 'Aprilia', 700 , 'assests/images/vehices/mopeds/pngwing.com 9 - Copy (3).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/mopeds/pngwing.com 9 - Copy (3).png" alt="Kids Bike">
+                    <p><strong>Aprilia</strong></p>
+                    <p>&#8377; 700/day</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

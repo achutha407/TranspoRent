@@ -1,0 +1,160 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+.oswald-header {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Adjust as needed */
+    font-style: normal;
+  }
+  
+/* Navigation Bar */
+.navbar {
+    background-color: #7FCD91;
+    padding: 20px;
+    text-align: left;
+}
+
+.navbar h1 {
+    color: white;
+    font-size: 28px;
+}
+
+/* Welcome Section with Background Image */
+.welcome-section {
+    background: url('E:\TranspoRent\assests\images\background\services.jpeg');
+    background-size: cover;
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Vehicle Categories Section */
+.categories-section {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0;
+    height: auto;
+}
+
+/* Opaque background only for vehicle categories */
+.opaque-background {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.categories-section h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.vehicle-images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0; 
+}
+
+.vehicle-item {
+    text-align: center;
+    margin: 0; /* Remove margin around each vehicle item */
+}
+
+.vehicle-item img {
+    width: 250px; /* Increased size */
+    height: 250px; /* Increased size */
+    border-radius: 10px;
+    border: none; /* Remove the border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.vehicle-item p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.reviews-section h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rev{
+    color: white;
+}
+
+.review p {
+    font-size: 18px;
+    font-style: italic;
+    color: white;
+}
+
+hr {
+    border: 1px solid #7FCD91;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.vehicle-slideshow {
+    position: relative;
+    width: 100%;  /* Make the slideshow container full width */
+    height: 250px;  /* Set a fixed height for the slideshow */
+    overflow: hidden;  /* Hide overflow content (images that extend beyond the container) */
+}
+
+.vehicle-slideshow img {
+    width: 100%;  /* Make the image width fill the container */
+    height: 100%;  /* Make the image height fill the container */
+    object-fit: cover;  /* Ensures the image covers the entire container without distortion */
+    object-position: center;  /* Center the image inside the container */
+}
+
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Smooth transition */
+    width: calc(100% * 5); /* Adjust based on the number of images */
+}
+
+.slides img {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 10px;
+    height: 100%;
+}

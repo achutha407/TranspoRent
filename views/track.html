@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>TranspoRent | Location Services</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <!-- Leaflet.js for OSM -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- CSS for styling -->
+    <style>
+        /* TranspoRent Website Theme Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #7FCD91;
+            color: white;
+            text-align: left;
+            padding: 20px 30px; /* Increased padding for a longer header */
+            font-size: 24px;
+            width: 100%; /* Full width */
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        .container {
+            color: white;
+            text-align: center;
+            margin: 20px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #7FCD91;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7FCD91;
+        }
+
+        #map {
+            height: 500px;
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid #7FCD91;
+
+        }
+        .oswald-header {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Adjust as needed */
+    font-style: normal;
+  }
+    </style>
+</head>
+<body background="assests/images/background/payment.jpeg">
+    <header class="oswald-header"><b>TranspoRent Vehicle Tracker</b></header>
+    <div class="container">
+        <p>Enter the UNIQUE ID provided to track location.</p>
+        <input type="text" maxlength="10" id="phoneNumber" placeholder="OBDIDXXXXX" />
+        <button onclick="generateLocation()" class="oswald-header">Generate Location</button>
+    </div>
+    <div id="map"></div>
+
+    <script>
+        // Function to generate a random location within a radius
+        function getRandomLocation(baseLat, baseLng, radius) {
+            const randomOffsetLat = (Math.random() * 2 - 1) * radius / 111; // ~111km per degree latitude
+            const randomOffsetLng = (Math.random() * 2 - 1) * radius / (111 * Math.cos(baseLat * Math.PI / 180));
+            return { lat: baseLat + randomOffsetLat, lng: baseLng + randomOffsetLng };
+        }
+
+        // Function to generate the location and display it on the map
+        function generateLocation() {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+
+            if (!phoneNumber) {
+                alert("Please enter a OBD ID number!");
+                return;
+            }
+
+            // Fixed base location (center point) - you can set it to a city or any default area
+            const baseLat = 12.9716; // Example: Bangalore latitude
+            const baseLng = 77.5946; // Example: Bangalore longitude
+            const radius = 10; // 10 km radius
+
+            // Generate random location
+            const randomLocation = getRandomLocation(baseLat, baseLng, radius);
+
+            // Initialize and display the map using Leaflet.js
+            const map = L.map("map").setView([randomLocation.lat, randomLocation.lng], 14);
+
+            // Add OpenStreetMap tile layer
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19,
+            }).addTo(map);
+
+            // Place a marker on the random location
+            L.marker([randomLocation.lat, randomLocation.lng]).addTo(map)
+                .bindPopup("<b>Vehicle Located at</b><br>" + phoneNumber)
+                .openPopup();
+        }
+    </script>
+</body>
+</html>

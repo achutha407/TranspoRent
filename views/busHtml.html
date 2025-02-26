@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus & Van Rentals - TranspoRent</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assests/css/busCss.css">
+    <script>
+        function saveSelection(category, name, price, imagePath) {
+            const selectionDetails = {
+                category: category,
+                name: name,
+                price: price,
+                image: imagePath // Save the exact path you need
+            };
+            localStorage.setItem("selectedVehicle", JSON.stringify(selectionDetails)); // Save to localStorage
+            window.location.href = "bookingHtml.html"; // Redirect to booking details page
+        }
+    </script>
+</head>
+<body background="assests/images/background/bus.jpeg">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <h1 class="oswald-header"><b>Bus & Van</b></h1>
+    </header>
+    <!-- Cycle Options -->
+    <main class="cycle-selection">
+        <div class="grid-container">
+            <!-- Cycle 1 -->
+            <div class="grid-item" onclick="saveSelection('Van ', 'Toyota HIACE X700', 7000 , 'assests/images/vehices/bus/pngwing.com 7 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com 7 - Copy.png" alt="Mountain Bike">
+                    <p><strong>Toyota HIACE X700</strong></p>
+                    <p>&#8377; 7000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 2 -->
+            <div class="grid-item" onclick="saveSelection('Van ', 'Toyota HIACE X900', 7500 , 'assests/images/vehices/bus/pngwing.com (4).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com (4).png" alt="Road Bike">
+                    <p><strong>Toyota HIACE X900</strong></p>
+                    <p>&#8377; 7500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 3 -->
+            <div class="grid-item" onclick="saveSelection('Vanity Van ', 'Mercedes Vanity',10000  , 'assests/images/vehices/bus/pngwing.com (3).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com (3).png" alt="Hybrid Bike">
+                    <p><strong>Mercedes Vanity</strong></p>
+                    <p>&#8377; 10000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 4 -->
+            <div class="grid-item" onclick="saveSelection('Camper Van ', 'Merc Camper 200', 12000 , 'assests/images/vehices/bus/pngwing.com (5).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com (5).png" alt="BMX">
+                    <p><strong>Merc Camper 200</strong></p>
+                    <p>&#8377; 12000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 5 -->
+            <div class="grid-item" onclick="saveSelection('Mini Bus ', 'Force Tempo Travellar', 8000 , 'assests/images/vehices/bus/force tt.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/force tt.png" alt="Folding Bike">
+                    <p><strong>Force Tempo Travellar</strong></p>
+                    <p>&#8377; 8000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 6 -->
+            <div class="grid-item" onclick="saveSelection('Bus ', 'Morning Star AC', 15000 , 'assests/images/vehices/bus/pngwing.com.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com.png" alt="Cruiser Bike">
+                    <p><strong>Morning Star AC</strong></p>
+                    <p>&#8377; 15000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 7 -->
+            <div class="grid-item" onclick="saveSelection('Bus ', 'FreeWay Recliner', 16000 , 'assests/images/vehices/bus/pngwing.com (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com (2).png" alt="Electric Bike">
+                    <p><strong>FreeWay Recliner</strong></p>
+                    <p>&#8377; 16000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 8 -->
+            <div class="grid-item" onclick="saveSelection('Double Decker Bus ', 'Double Decker 4UX', 18000 , 'assests/images/vehices/bus/pngwing.com (1).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/pngwing.com (1).png" alt="Touring Bike">
+                    <p><strong>Double Decker 4UX</strong></p>
+                    <p>&#8377; 18000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 9 -->
+            <div class="grid-item" onclick="saveSelection('Sleeper Bus ', 'AC Sleeper 4IP',20000  , 'assests/images/vehices/bus/bus.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/bus/bus.png" alt="Kids Bike">
+                    <p><strong>AC Sleeper 4IP</strong></p>
+                    <p>&#8377; 20000/day</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

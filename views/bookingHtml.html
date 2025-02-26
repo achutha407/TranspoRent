@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details - TranspoRent</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="E:/TranspoRent/assests/css/bookingCss.css">
+    <script>
+        window.onload = function() {
+            // Retrieve the selected vehicle details from localStorage
+            const selectedVehicle = JSON.parse(localStorage.getItem("selectedVehicle"));
+
+            if (selectedVehicle) {
+                // Populate the booking details page with the vehicle details
+                document.getElementById("vehicleName").textContent = selectedVehicle.name;
+                document.getElementById("vehiclePrice").textContent = `₹ ${selectedVehicle.price}/day`;
+                document.getElementById("vehicleImage").src = selectedVehicle.image;
+                document.getElementById("vImage").src = selectedVehicle.image;
+                document.getElementById("vehicleCategory").textContent = selectedVehicle.category;
+            } else {
+                alert("No vehicle selected. Redirecting to the homepage.");
+                window.location.href = "index.html"; // Redirect to the homepage if no data is found
+            }
+        };
+
+          </script>
+    
+</head>
+<body background="assests/images/background/payment.jpeg">
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <h1 class="oswald-header"><b>Booking Details</b></h1>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <div class="form-container">
+                <h2 class="oswald-header"><b>Enter Your Details</b></h2>
+                <form id="bookingForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" required>
+
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" required></textarea>
+
+                    <label for="pincode">Pincode:</label>
+                    <input type="text" id="pincode" name="pincode" required>
+
+                    <label for="landmark">Landmark:</label>
+                    <input type="text" id="landmark" name="landmark" required>
+
+                    <label>Nationality:</label><br>
+                    <form>
+                        <!-- Radio buttons for Indian and Foreign region -->
+                       
+                        <input type="radio" id="indian" name="region" value="indian" onclick="showDocuments('indian')" />
+                        <label for="indian">Indian</label>
+                       
+                        <input type="radio" id="foreign" name="region" value="foreign" onclick="showDocuments('foreign')" />
+                        <label for="foreign">Foreign</label>
+                        <!-- Empty div to be populated with document upload fields dynamically -->
+                        <div id="documentUpload"></div>
+                    </form>
+                    <section id="payment-section" class="payment-section">
+                        <h2 class="oswald-header" style="text-align: left;">Payments</h2>
+                    
+                        <!-- Payment Options -->
+                        <div class="payment-options">
+                            <!-- Cash on Delivery (COD) Card -->
+                            <div class="payment-card" data-payment="cash">
+                                <img src="assests/images/icons/savings-rupee.246x256.png" alt="Cash on Delivery">
+                                <p>Cash on Delivery</p>
+                            </div>
+                    
+                            <!-- UPI Card -->
+                            <div class="payment-card" data-payment="upi">
+                                <img src="assests/images/icons/icons8-bhim-48.png" alt="UPI" >
+                                <p>UPI</p>
+                            </div>
+                    
+                            <!-- Credit Card -->
+                            <div class="payment-card" data-payment="credit">
+                                <img src="assests/images/icons/mastercard.256x198.png" alt="Credit Card">
+                                <p>Credit Card</p>
+                            </div>
+                    
+                            <!-- Debit Card -->
+                            <div class="payment-card" data-payment="debit">
+                                <img src="assests/images/icons/visa.256x79.png" alt="Debit Card">
+                                <p>Debit Card</p>
+                            </div>
+                        </div>
+                    
+                        <!-- Confirm Payment Button -->
+                        <div class="confirm-container">
+                            <button id="confirm-payment" class="confirm-button oswald-header" disabled>Confirm Payment</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Popups -->
+                    
+                    <!-- Cash on Delivery Popup -->
+                    <div id="cod-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="popup-close">&times;</span>
+                            <h3>Additional Charge</h3>
+                            <p>A charge of ₹100 will be added for Cash on Delivery.</p>
+                            <button id="continue-cod" class="continue-button">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <!-- UPI Popup -->
+                    <div id="upi-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="popup-close">&times;</span>
+                            <h3>Scan QR Code</h3>
+                            <img id="upi-qr-code" src="assests/images/icons/upi_1734038755104.png" alt="QR Code">
+                            <button id="rent-now-upi" class="rent-now-button">Rent Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit/Debit Card Form Popup -->
+                    <div id="card-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="popup-close">&times;</span>
+                            <h3>Enter Card Details</h3>
+                            <input type="text" id="card-number" placeholder="16-digit Card Number" class="input-field">
+                            <input type="text" id="expiry-date" placeholder="MM/YY" class="input-field">
+                            <input type="text" id="cvv" placeholder="CVV" class="input-field">
+                            <button id="rent-now-card" class="rent-now-button oswald-header">Rent Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Final Confirmation Popup -->
+                    <div id="final-popup" class="popup">
+                        <div class="popup-content">
+                            <h3>Your Vehicle will be TranspoRented</h3>
+                            <img id="vImage" src="" alt="Vehicle Image">
+                            <p id="delivery-text">Delivering soon in <span id="delivery-timer">few</span> minutes to your doorstep.</p>
+                            <button id="book-more" class="book-more-button oswald-header">Book More</button>
+                        </div>
+                    </div>
+                    
+                   
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Panel Section -->
+        <div class="right-panel">
+            <h2 class="oswald-header">Selected Vehicle</h2>
+            <img id="vehicleImage" src="" alt="Vehicle Image" class="vehicle-image">
+            <p><strong>Name:</strong> <span id="vehicleName"></span></p>
+            <p><strong>Category:</strong> <span id="vehicleCategory"></span></p>
+            <p><strong>Price:</strong> <span id="vehiclePrice"></span></p>
+            <h3 class="oswald-header">Rental Agreements</h3>
+            <p>Vehicle rentals facilitated through our platform are subject to terms and conditions set forth by the respective vehicle owners or service providers. TranspoRent acts as a facilitator and does not assume liability for disputes, damages, accidents, or losses that may occur during the rental period.</p>
+            <h3 class="oswald-header">Insurance</h3>
+            <p>Our vehicles are covered by basic insurance. However, the renter is responsible for any damage caused during the rental period. In the event of an accident, the renter must inform TranspoRent immediately and follow our procedures for reporting the incident</p>
+            <h3 class="oswald-header">Contact Us</h3>
+            <p>Email: <a href="mailto:TranspoRent@vrent.in">TranspoRent@vrent.in</a></p>
+            <p>Phone: <a href="tel:+917051491466">+91 7051491466</a></p>
+            <p>Address: 19, 5th Main Rd, PNS Layout, Kammanahalli, Bangalore 560045</p>
+        
+        </div>
+        
+    </div>
+   
+
+    
+
+    <script>
+        // Function to dynamically display the document upload fields
+        function showDocuments(region) {
+            const documentUploadDiv = document.getElementById('documentUpload');
+            documentUploadDiv.innerHTML = ''; // Clear previous content
+            
+            // Check which region is selected and display the relevant documents to upload
+            if (region === 'indian') {
+                documentUploadDiv.innerHTML = `
+                    <div>
+                        <label for="aadhaarCard">Upload AADHAR CARD:</label>
+                        <input type="file" id="aadhaarCard" name="aadhaarCard" accept="image/*,application/pdf" onchange="previewFile(event, 'aadhaarPreview')" required><br><br>
+                        <div id="aadhaarPreview" class="preview-container"></div>
+
+                        <label for="drivingLicense">Upload DRIVING LICENSE:</label>
+                        <input type="file" id="drivingLicense" name="drivingLicense" accept="image/*,application/pdf" onchange="previewFile(event, 'licensePreview')" required><br><br>
+                        <div id="licensePreview" class="preview-container"></div>
+                    </div>
+                `;
+            } else if (region === 'foreign') {
+                documentUploadDiv.innerHTML = `
+                    <div>
+                        <label for="visa">Upload VISA:</label>
+                        <input type="file" id="visa" name="visa" accept="image/*,application/pdf" onchange="previewFile(event, 'visaPreview')" required><br><br>
+                        <div id="visaPreview" class="preview-container"></div>
+
+                        <label for="internationalDrivingLicense">Upload International DRIVING LICENSE:</label>
+                        <input type="file" id="internationalDrivingLicense" name="internationalDrivingLicense" accept="image/*,application/pdf" onchange="previewFile(event, 'intlLicensePreview')" required><br><br>
+                        <div id="intlLicensePreview" class="preview-container"></div>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to preview uploaded files
+        function previewFile(event, previewId) {
+            const file = event.target.files[0];
+            const previewContainer = document.getElementById(previewId);
+            previewContainer.innerHTML = ''; // Clear previous content
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    if (file.type.startsWith('image/')) {
+                        // If the file is an image
+                        previewContainer.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                    } else if (file.type === 'application/pdf') {
+                        // If the file is a PDF
+                        previewContainer.innerHTML = `<iframe src="${e.target.result}" frameborder="0"></iframe>`;
+                    } else {
+                        previewContainer.innerHTML = `<p>Unsupported file type</p>`;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <script >// Select elements
+        const paymentCards = document.querySelectorAll('.payment-card');
+        const confirmButton = document.getElementById('confirm-payment');
+        let selectedPaymentMethod = null;
+        
+        // Add event listener to each payment card
+        paymentCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove 'selected' class from all cards
+                paymentCards.forEach(card => card.classList.remove('selected'));
+                
+                // Add 'selected' class to the clicked card
+                card.classList.add('selected');
+                
+                // Set selected payment method
+                selectedPaymentMethod = card.getAttribute('data-payment');
+                
+                // Enable the confirm button
+                confirmButton.disabled = false;
+            });
+        });
+        
+        // Confirm payment action
+        confirmButton.addEventListener('click', () => {
+            if (selectedPaymentMethod === 'cash') {
+                document.getElementById('cod-popup').style.display = 'flex';
+            } else if (selectedPaymentMethod === 'upi') {
+                document.getElementById('upi-popup').style.display = 'flex';
+            } else if (selectedPaymentMethod === 'credit' || selectedPaymentMethod === 'debit') {
+                document.getElementById('card-popup').style.display = 'flex';
+            }
+        });
+        
+        // Close popup
+        const closePopups = document.querySelectorAll('.popup-close');
+        closePopups.forEach(closeBtn => {
+            closeBtn.addEventListener('click', () => {
+                const popup = closeBtn.closest('.popup');
+                popup.style.display = 'none';
+            });
+        });
+        
+        // Cash on Delivery continue action
+        document.getElementById('continue-cod').addEventListener('click', () => {
+            document.getElementById('cod-popup').style.display = 'none';
+            showFinalPopup('cash');
+        });
+        
+        // UPI rent now action
+        document.getElementById('rent-now-upi').addEventListener('click', () => {
+            document.getElementById('upi-popup').style.display = 'none';
+            showFinalPopup('upi');
+        });
+        
+        // Card rent now action
+        document.getElementById('rent-now-card').addEventListener('click', () => {
+            document.getElementById('card-popup').style.display = 'none';
+            showFinalPopup('card');
+        });
+        
+        // Final popup action
+        function showFinalPopup(paymentMethod) {
+            const finalPopup = document.getElementById('final-popup');
+            finalPopup.style.display = 'flex';
+        
+            // Set vehicle image dynamically (example)
+            const vehicleImage = document.getElementById('final-vehicle-image');
+            vehicleImage.src = 'vehicle-image.jpg'; // Replace with actual image path
+        
+            // Timer functionality
+            let minutes = 5;
+            const timerElement = document.getElementById('delivery-timer');
+            const timerInterval = setInterval(() => {
+                if (minutes > 0) {
+                    minutes--;
+                    timerElement.textContent = minutes;
+                } else {
+                    clearInterval(timerInterval);
+                }
+            }, 60000); // 1-minute countdown
+        
+
+
+        }
+        </script>
+        <script>            // Book More Button
+            document.getElementById('book-more').addEventListener('click', () => {
+    console.log('Book More button clicked');
+    window.location.href = 'E:/TranspoRent/views/index.html';
+});</script>
+</body>
+</html>

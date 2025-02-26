@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TranspoRent | Wheels for every journey</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <link rel="stylesheet" href="assests/css/indexCss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="assests/js/indexJs.js" defer></script>
+    <script>
+        // Update the selected location and store it in localStorage
+        function updateLocation(location) {
+            // Store selected location in localStorage
+            localStorage.setItem('location', location);
+            // Update the button text to reflect the selected location
+            document.getElementById('locationBtn').textContent = location + ' ▼';
+        }
+
+        // Load the stored location when the page loads
+        function loadLocation() {
+            // Retrieve the stored location from localStorage
+            const savedLocation = localStorage.getItem('location');
+            // If a location is stored, update the button text accordingly
+            if (savedLocation) {
+                document.getElementById('locationBtn').textContent = savedLocation + ' ▼';
+            } else {
+                // If no location is stored, set a default text
+                document.getElementById('locationBtn').textContent = 'Location ▼';
+            }
+        }
+
+        // Call loadLocation function on page load
+        window.onload = loadLocation;
+    </script>
+</head>
+<body background="assests/images/background/home.jpeg">
+    <header>
+        <div class="logo">
+            <img src="assests/images/admins/logobg.png" alt="Site Icon" style="width: 180px; height: 70px;">
+        </div>
+    
+        <!-- Navigation Bar -->
+        <nav>
+            <ul class="nav-items">
+                <li class="dropdown">
+                    <button class="dropdown-btn" id="locationBtn">Location <span class="arrow">&#9660;</span></button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="updateLocation('Bangalore')">Bangalore</a>
+                        <a href="#" onclick="updateLocation('Kashmir')">Kashmir</a>
+                        <a href="#" onclick="updateLocation('Delhi')">Delhi</a>
+                    </div>
+                </li>
+                <li><h3><a href="aboutHtml.html" class="oswald-header">About</a></h3></li>
+                <li><a href="ourServicesHtml.html" class="oswald-header">Services</a></li>
+                <li><a href="contactHtml.html" class="oswald-header">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="login-btn oswald-header" onclick="showLoginDialog()">Login</button>
+                <button class="signup-btn oswald-header" onclick="showSignupDialog()">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="text-container">
+        <div class="main-text oswald-header">Cycle, Bike, ya Car ho sab available,<br>
+            <span class="highlight">TranspoRent</span> se rent karo, <br>aur safar ho memorable!</div>
+        <div class="sub-text pacifico-regular">Wheels for "Every Journey"</div>
+    </div>
+    
+    <div class="date-time-container">
+        <div class="date-time-section from-date-time">
+            <label for="from-date-time">From Date & Time</label>
+            <input type="datetime-local" id="from-date-time">
+        </div>
+        
+        <div class="date-time-section till-date-time">
+            <label for="till-date-time">Till Date & Time</label>
+            <input type="datetime-local" id="till-date-time">
+        </div>
+        
+        <button class="rent-now-btn oswald-header" id="rentNowBtn">Rent Now</button>        
+    </div>
+    
+    <!-- Login and Signup Dialogs -->
+    <!-- Signup Popup -->
+<div id="signupDialog" class="popup-dialog">
+    <span class="close-btn" onclick="hideSignupDialog()">×</span>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <input type="text" id="signupPhoneOrEmail" placeholder="Phone or Email" required>
+        <input type="password" id="signupPassword" placeholder="New Password" required>
+        <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+<!-- Login Popup -->
+<div id="loginDialog" class="popup-dialog">
+    <span class="close-btn" onclick="hideLoginDialog()">×</span>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="loginPhoneOrEmail" placeholder="Phone or Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<!-- Success Dialog -->
+<div id="successDialog" class="popup-dialog">
+    <span class="close-btn" onclick="closeSuccessDialog()">×</span>
+    <div class="message"></div>
+</div>
+
+<!-- Failure Dialog -->
+<div id="failureDialog" class="popup-dialog" style="background-color: #f44336;">
+    <span class="close-btn" onclick="closeFailureDialog()">×</span>
+    <div class="message"></div>
+    <button onclick="closeFailureDialog()">OK</button>
+</div>
+
+<div id="failureDialog" style="display: none;">
+    <p class="message"></p>
+</div>
+
+<div id="successDialog" style="display: none;">
+    <p class="message"></p>
+</div>
+
+
+    <div class="chatbot-container">
+        <!-- FAQ Button -->
+        <button id="faqButton" onclick="toggleFAQ()">FAQs</button>
+         <!-- locate Button -->
+        <button id="faqButton" onclick="window.location.href='E:/TranspoRent/views/track.html'">Locate</button>
+
+      
+    </div>
+    <!-- Chatbot Popup -->
+<div id="chatbotPopup" class="chatbot-popup hidden">
+    <h3>Chat with Us</h3>
+    <div class="chat-content">
+        <p>Welcome! How can we assist you today?</p>
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <button onclick="toggleChatbot()">Close Chat</button>
+</div>
+
+   <!-- FAQ Section -->
+<div id="faqSection" class="faq-popup hidden">
+    <h3>Frequently Asked Questions</h3>
+    <br>
+    <div class="faq-items">
+        <div class="faq-item">
+            <p class="question">1. What documents are required to rent a vehicle?</p>
+            <p class="answer">You need a valid driver's license, AADHAR card (for Indian residents), and an international driver's license for foreign residents.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">2. What is the minimum rental duration?</p>
+            <p class="answer">The minimum rental duration is 1 day.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">3. Are there additional charges for late returns?</p>
+            <p class="answer">Yes, late returns are subject to additional charges based on the hourly rental rate.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">4. What types of vehicles are available?</p>
+            <p class="answer">We offer cars, bikes, and scooters for rental.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">5. Can I cancel my booking?</p>
+            <p class="answer">Yes, cancellations are allowed up to 24 hours before the start of the rental period. Charges may apply for last-minute cancellations.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">6. What payment methods are accepted?</p>
+            <p class="answer">We accept credit cards, debit cards, UPI, and mobile wallets for payment.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">7. Is fuel included in the rental price?</p>
+            <p class="answer">Fuel is not included. The vehicle must be returned with the same fuel level as when it was rented.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">8. Are there any discounts for long-term rentals?</p>
+            <p class="answer">Yes, discounts are available for rentals exceeding one week. Contact customer service for details.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">9. What happens in case of an accident?</p>
+            <p class="answer">You must inform us immediately and file a report. Insurance coverage will depend on the plan you selected.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question">10. Can I extend my rental period?</p>
+            <p class="answer">Yes, you can extend your rental by contacting our support team. Additional charges may apply.</p>
+        </div>
+    </div>
+    <button onclick="toggleFAQ()">Close FAQs</button>
+</div>
+
+    
+</body>
+</html>

@@ -1,0 +1,875 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #4D4646;
+    color: #333;
+    font-size: 16px; /* Set global font size for consistency */
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #7FCD91;
+    color: white;
+    width: 100%;
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 200px;
+
+}
+
+.logo img {
+    height: 40px;
+    width: 70px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+/* Navigation Items */
+.nav-items {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: auto;
+}
+
+.nav-items li {
+    margin: 0 15px;
+    position: relative;
+    font-size:px;
+}
+
+.nav-items li a {
+    text-decoration: none;
+    color: white;
+    font-size: 21px;
+    transition: color 0.3s ease;
+}
+
+.nav-items li a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+/* Hover Effects on Navigation Items */
+.nav-items li:hover {
+    color: #4CAF50;
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    background-color: #4D4646;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-btn:hover {
+    background-color: #6c6b6b;
+}
+
+.arrow {
+    font-size: 14px;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #7FCD91;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 8px 0;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #4CAF50;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.login-btn,
+.signup-btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    background-color: #F5EAEA;
+    color: #4D4646;
+    border: 1px solid #F5EAEA;
+}
+
+.signup-btn {
+    background-color: #4D4646;
+    color: white;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* Dialog Box Styles */
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dialog Content (Updated) */
+.dialog-content {
+    position: relative;  /* Make it relative to its own content */
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 40%;
+    text-align: center;
+}
+
+/* Close Button (Updated) */
+.close {
+    position: absolute; /* Positioned inside the dialog box */
+    top: 10px;  /* 10px from the top of the dialog box */
+    right: 10px;  /* 10px from the right of the dialog box */
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Close Button Hover Effect */
+.close:hover {
+    color: black; /* Change color on hover */
+    text-decoration: none;
+}
+
+/* Success Dialog Content */
+#successDialog .dialog-content {
+    background-color: #4CAF50; /* Green background for success */
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    line-height: 1.6; /* Increase line height for better spacing */
+}
+
+#successDialog button {
+    background-color: white;
+    color: #4CAF50;
+    padding: 12px 24px;
+    border-radius: 4px;
+}
+
+#successDialog button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Failure Dialog Content */
+#failureDialog .dialog-content {
+    background-color: #f44336; /* Red background for failure */
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    line-height: 1.6; /* Increase line height for better spacing */
+}
+
+/* Success Dialog Heading */
+#successDialog h2,
+#failureDialog h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    line-height: 1.4; /* Adjust line spacing for heading */
+}
+
+/* Success and Failure Dialog Message */
+#successDialog p,
+#failureDialog p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6; /* Increased line spacing for paragraphs */
+}
+
+#failureDialog button {
+    background-color: #fff;
+    color: #f44336;
+    padding: 12px 24px;
+    border-radius: 4px;
+}
+
+#failureDialog button:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #4D4646;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #7FCD91;
+}
+
+/* Button in Success and Failure Dialogs */
+#successDialog button,
+#failureDialog button {
+    background-color: #fff;
+    color: #7FCD91; /* Change for success, change to #f44336 for failure */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+/* Container for the text */
+.text-container {
+    position: fixed;  /* Make the container fixed on the right side */
+    right: 10%;         /* Position it on the right side of the screen */
+    top: 50%;         /* Center it vertically on the screen */
+    transform: translateY(-50%); /* Adjust to truly center it */
+    text-align: right; /* Align text to the right */
+    padding-right: 20px; /* Add some padding from the edge */
+}
+
+/* Style for the main text ("Hello") */
+.main-text {
+    font-size: 50px;  /* Larger font size for "Hello" */
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.2; /* Decrease spacing */
+}
+
+/* Style for the sub text ("Kese ho") */
+.sub-text {
+    font-size: 35px;  /* Smaller font size for "Kese ho" */
+    color: #ffffff;   /* A different color for variety */
+    margin-top: 10px; /* Adds a small gap between the two texts */
+}
+
+/* Container for the Date & Time Selection */
+.date-time-container {
+    position: fixed;
+    left: 10%;    /* Adjust from the left side */
+    top: 50%;     /* Adjust from the top */
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust input field size */
+.date-time-section input[type="datetime-local"] {
+    width: 100%;
+    padding: 12px; /* Increase padding slightly */
+    font-size: 18px; /* Increase font size slightly */
+}
+
+/* Label Styling */
+.date-time-section label {
+    font-size: 16px;
+    color: #4D4646;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Date & Time Input Field Styling */
+.date-time-section input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+/* Input Hover and Focus Effects */
+.date-time-section input[type="datetime-local"]:hover,
+.date-time-section input[type="datetime-local"]:focus {
+    border: 1px solid #4CAF50;
+    background-color: #eafaf3;
+}
+
+/* Rent Now Button Styling */
+.rent-now-btn {
+    width: 100%;
+    padding: 14px 22px;
+    font-size: 20px;
+    color: white;
+    background-color: #4D4646;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Rent Now Button Hover Effect */
+.rent-now-btn:hover {
+    background-color: #7FCD91;
+    transform: translateY(-2px);
+}
+
+/* Rent Now Button Focus Effect */
+.rent-now-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.5);
+}
+
+/* Date and Time Section */
+.date-time-section {
+    margin-bottom: 20px; /* Add margin between sections */
+}
+
+/* From Date and Time */
+.from-date-time {
+    margin-bottom: 15px; /* Space between "From" and "Till" */
+}
+
+/* Till Date and Time */
+.till-date-time {
+    margin-bottom: 20px; /* Space below the "Till" input */
+}
+
+/* Rent Now Button Size */
+.rent-now-btn {
+    width: 100%;
+    padding: 14px 22px;
+    font-size: 20px;
+}
+@media (max-width: 768px) {
+    .logo img {
+        width: 120px; /* Adjust logo size for mobile */
+    }
+    .text-container {
+        width: 80%;
+        font-size: 16px; /* Make text smaller on mobile */
+    }
+}
+/* Mobile-friendly adjustments */
+@media screen and (max-width: 768px) {
+    .nav-items {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .date-time-container {
+        width: 80%;
+        left: 10%;
+    }
+
+    .text-container {
+        position: fixed;
+        top: 40%;
+        right: 10%;
+        width: 70%;
+        text-align: center;
+    }
+
+    .rent-now-btn {
+        font-size: 18px;
+    }
+}
+
+.user-display {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-display {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.logout-button {
+    padding: 5px 10px;
+    background-color: #f44336; /* Red color for logout */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* FONTTTTTTT */
+.oswald-header {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Adjust as needed */
+    font-style: normal;
+  }
+  
+  .highlight {
+    color: #7FCD91; /* Inner color */
+    font-family: "Oswald", sans-serif; 
+    -webkit-text-stroke: 2px black; /* Black outline */
+    text-shadow: 2px black; /* For browsers supporting text-stroke */
+    font-weight: 500; /* Optional to make the text stand out more */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  /* Chatbot Button */
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #7FCD91;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Chatbot Popup */
+.chatbot-popup {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+/* Chatbot Header */
+.chatbot-header {
+    background-color: #7FCD91;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chatbot Body */
+.chatbot-body {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Chatbot Footer */
+.chatbot-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#userInput {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.chatbot-footer button {
+    background-color: #7FCD91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.bot-message,
+.user-message {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+}
+
+.user-message {
+    background-color: #7FCD91;
+    color: white;
+    text-align: right;
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+#faqButton, #chatbotButton {
+    padding: 10px 20px;
+    background-color: #7FCD91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#faqButton:hover, #chatbotButton:hover {
+    background-color: #7FCD91; /* Darker blue on hover */
+}
+
+/* FAQ Section */
+#faqSection {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#locateButton {
+    background-color: #7FCD91;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#locateButton:hover {
+    background-color: #68A87C;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.faq-popup h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #7FCD91;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-item .question {
+    font-weight: bold;
+    color: #333;
+}
+
+.faq-item .answer {
+    margin: 5px 0 0 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.chatbot-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.chatbot-popup.hidden {
+    display: none;
+}
+
+.chat-content {
+    margin-top: 15px;
+}
+
+#chatInput {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chatbot-popup button {
+    margin-top: 10px;
+    background-color: #7FCD91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-popup button:hover {
+    background-color: #7FCD91;
+}
+
+.faq-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px; /* Limit height to 400px */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.faq-popup.hidden {
+    display: none;
+}
+
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add space between FAQs */
+}
+
+.faq-popup h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #7FCD91;
+}
+
+.faq-item .question {
+    font-weight: bold;
+    color: #333;
+}
+
+.faq-item .answer {
+    margin: 5px 0 0 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.faq-popup button {
+    margin-top: 10px;
+    background-color: #7FCD91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-popup button:hover {
+    background-color: #7FCD91;
+}
+/* Basic styling for the popup dialog */
+.popup-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Close button (X) styling */
+.popup-dialog .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.popup-dialog .close-btn:hover {
+    color: #f00; /* Change color on hover */
+}
+
+/* Style for input fields */
+.popup-dialog input[type="password"],
+.popup-dialog input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style for buttons */
+.popup-dialog button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7FCD91; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup-dialog button:hover {
+    background-color: #7FCD91;
+}
+
+/* Popup dialog headings */
+.popup-dialog h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Failure Dialog */
+#failureDialog {
+    background-color: #f44336;
+    color: white;
+    padding: 20px;
+}
+
+/* Success Dialog */
+#successDialog {
+    background-color: #7FCD91;
+    color: white;
+    padding: 20px;
+}
+

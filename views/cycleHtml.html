@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle Rentals - TranspoRent</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assests/css/cycleCss.css">
+    <script>
+        function saveSelection(category, name, price, imagePath) {
+            const selectionDetails = {
+                category: category,
+                name: name,
+                price: price,
+                image: imagePath // Save the exact path you need
+            };
+            localStorage.setItem("selectedVehicle", JSON.stringify(selectionDetails)); // Save to localStorage
+            window.location.href = "bookingHtml.html"; // Redirect to booking details page
+        }
+    </script>
+</head>
+<body background="Essests/images/background/cycle.jpeg">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <h1 class="oswald-header"><b>Bicycle</b></h1>
+    </header>
+
+    <!-- Cycle Options -->
+    <main class="cycle-selection">
+        <div class="grid-container">
+            <!-- Cycle 1 -->
+            <div class="grid-item" onclick="saveSelection('BMX', 'BMX 100', 150 , 'assests/images/vehices/cycles/pngwing.com 3 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 3 - Copy (2).png" alt="Mountain Bike">
+                    <p><strong>BMX 100</strong></p>
+                    <p>&#8377; 150/day</p>
+                </div>
+            </div>
+            <!-- Cycle 2 -->
+            <div class="grid-item" onclick="saveSelection('Road Bike', 'Road Bike 20P', 200 , 'assests/images/vehices/cycles/pngwing.com 7 - Copy (3).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 7 - Copy (3).png" alt="Road Bike">
+                    <p><strong>Road Bike 20P</strong></p>
+                    <p>&#8377; 200/day</p>
+                </div>
+            </div>
+            <!-- Cycle 3 -->
+            <div class="grid-item" onclick="saveSelection('Lady Bike', 'Lady Bird', 120 , 'assests/images/vehices/cycles/pngwing.com 8 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 8 - Copy (2).png" alt="Hybrid Bike">
+                    <p><strong>Lady Bird</strong></p>
+                    <p>&#8377; 120/day</p>
+                </div>
+            </div>
+            <!-- Cycle 4 -->
+            <div class="grid-item" onclick="saveSelection('MTB', 'Mountain Bike 2.0', 300 , 'assests/images/vehices/cycles/pngwing.com 9 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 9 - Copy (2).png" alt="BMX">
+                    <p><strong>Mountain Bike 2.0 </strong></p>
+                    <p>&#8377; 300/day</p>
+                </div>
+            </div>
+            <!-- Cycle 5 -->
+            <div class="grid-item" onclick="saveSelection('Electric ', 'Electric Bike', 500 , 'assests/images/vehices/cycles/pngwing.com 6 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 6 - Copy (2).png" alt="Folding Bike">
+                    <p><strong>Electric Bike</strong></p>
+                    <p>&#8377; 500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 6 -->
+            <div class="grid-item" onclick="saveSelection('Adventure Bike', 'Rodeo Riot',250  , 'assests/images/vehices/cycles/pngwing.com 2 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 2 - Copy.png" alt="Cruiser Bike">
+                    <p><strong>Rodeo Riot</strong></p>
+                    <p>&#8377; 250/day</p>
+                </div>
+            </div>
+            <!-- Cycle 7 -->
+            <div class="grid-item" onclick="saveSelection('Sports', 'Trek Bike',800, 'assests/images/vehices/cycles/pngwing.com 5 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 5 - Copy (2).png" alt="Electric Bike">
+                    <p><strong>Trek Bike</strong></p>
+                    <p>&#8377; 800/day</p>
+                </div>
+            </div>
+            <!-- Cycle 8 -->
+            <div class="grid-item" onclick="saveSelection('Rally', 'Tren 2000', 400 , 'assests/images/vehices/cycles/pngwing.com 4 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com 4 - Copy (2).png" alt="Touring Bike">
+                    <p><strong>Tren 2000</strong></p>
+                    <p>&#8377; 400/day</p>
+                </div>
+            </div>
+            <!-- Cycle 9 -->
+            <div class="grid-item" onclick="saveSelection('Sport', 'Elite X', 350 , 'assests/images/vehices/cycles/pngwing.com - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cycles/pngwing.com - Copy.png" alt="Kids Bike">
+                    <p><strong>Elite X</strong></p>
+                    <p>&#8377; 350/day</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

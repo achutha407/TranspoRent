@@ -1,0 +1,192 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+.oswald-header {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Adjust as needed */
+    font-style: normal;
+  }
+  /* Logo styling */
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
+}
+.justified-text {
+    text-align: justify; /* Justifies the text */
+    font-size: 20px;
+    color: white;
+}
+
+
+/* Navigation Bar */
+.navbar {
+    background-color: #7FCD91; /* Green color */
+    padding: 20px; /* Increased padding */
+    text-align: left;
+}
+
+.navbar h1 {
+    color: white;
+    margin: 0;
+    font-size: 28px; /* Larger font size */
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    margin: 0; /* Ensure no extra margin on the section */
+}
+
+.about-content {
+    position: relative;
+    display: flex;
+    gap: 10px; /* Reduce the gap between the text and the image */
+    align-items: flex-start;
+    margin-bottom: 0; /* Remove any potential margins */
+}
+
+.about-content p {
+    flex: 1;
+    font-size: 20px;
+    width: 100%;
+    text-align: justify;
+    margin: 0; /* Completely remove all margins from the paragraph */
+    color: white;
+}
+
+
+.circular-image {
+    width: 250px;
+    height: 200px;
+  
+    position: absolute;
+    top: 0;
+    right: 90px;
+}
+
+.members-heading {
+    margin: 10px 0; /* Adjust this to control spacing below the paragraph */
+}
+
+/* Developers Section */
+.developers-section {
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 0; 
+}
+
+.opaque-background {
+    margin-top: 5px; /* Reduce the top margin of the opaque box */
+    background: rgba(255, 255, 255, 0.8); /* Less opaque white background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.developers-section h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.developer-profiles {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.developer {
+    text-align: center;
+}
+
+.developer img {
+    width: 150px; /* Larger photos */
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #7FCD91; /* Green border */
+    margin-bottom: 10px;
+}
+
+.developer p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.side-heading {
+    font-size: 30px; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #7FCD91; /* Green color for the heading */
+    text-align: left; /* Align text to the left */
+    margin-left: 0; /* Remove any extra left margin */
+    margin-top: 0;
+    margin-bottom: 0px; /* Add space below the heading */
+}
+
+/* Our Story Section */
+.our-story p {
+    text-align: justify;
+    font-size: 18px;
+    color: white;
+}
+
+.our-story h3 {
+    font-size: 24px;
+    color: #7FCD91;
+    margin-top: 20px;
+}
+
+/* Why Choose Us Section */
+.why-choose-us ul {
+    list-style-type: none;
+    padding-left: 0;
+    color: white;
+}
+
+.why-choose-us li {
+    font-size: 18px;
+    margin: 10px 0;
+    color: white;
+}
+
+.why-choose-us b {
+    color: #7FCD91;
+}
+
+/* Future Plans Section */
+.future-plans p {
+    font-size: 18px;
+    text-align: justify;
+    color: white;
+}
+
+/* Contact Info Section */
+.contact-info p {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.social-media {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
+
+.social-media a {
+    font-size: 18px;
+    margin: 0 10px;
+    color: #7FCD91;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+    color: white;
+}

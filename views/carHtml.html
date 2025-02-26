@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Car Rentals - TranspoRent</title>
+    <link rel="icon" href="assests/images/admins/deek.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="E:\TranspoRent\assests\css\carCss.css">
+    <script>
+        function saveSelection(category, name, price, imagePath) {
+            const selectionDetails = {
+                category: category,
+                name: name,
+                price: price,
+                image: imagePath // Save the exact path you need
+            };
+            localStorage.setItem("selectedVehicle", JSON.stringify(selectionDetails)); // Save to localStorage
+            window.location.href = "bookingHtml.html"; // Redirect to booking details page
+        }
+    </script>
+</head>
+<body background="assests/images/background/cars.jpeg">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <h1 class="oswald-header"><b>Car</b></h1>
+    </header>
+
+    <!-- Cycle Options -->
+    <main class="cycle-selection">
+        <div class="grid-container">
+            <!-- Cycle 1 -->
+            <div class="grid-item" onclick="saveSelection('Commute ', 'Swift', 3000 , 'assests/images/vehices/cars/pngwing.com 9 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 9 - Copy.png" alt="Mountain Bike">
+                    <p><strong>Swift</strong></p>
+                    <p>&#8377; 3000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 2 -->
+            <div class="grid-item" onclick="saveSelection('Commute ', 'Brio', 3500 , 'assests/images/vehices/cars/pngwing.com 8 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 8 - Copy.png" alt="Road Bike">
+                    <p><strong>Brio</strong></p>
+                    <p>&#8377; 3500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 3 -->
+            <div class="grid-item" onclick="saveSelection('SUV', 'Tucsan', 4000 , 'assests/images/vehices/cars/pngwing.com 2.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 2.png" alt="Hybrid Bike">
+                    <p><strong>Tucsan</strong></p>
+                    <p>&#8377; 4000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 4 -->
+            <div class="grid-item" onclick="saveSelection('Sedan', 'Corolla', 4500 , 'assests/images/vehices/cars/pngwing.com 4 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 4 - Copy.png" alt="BMX">
+                    <p><strong>Corolla</strong></p>
+                    <p>&#8377; 4500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 5 -->
+            <div class="grid-item" onclick="saveSelection('Pickup Truck', 'Hilux', 5000 , 'assests/images/vehices/cars/pngwing.com 3 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 3 - Copy.png" alt="Folding Bike">
+                    <p><strong>Hilux</strong></p>
+                    <p>&#8377; 5000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 6 -->
+            <div class="grid-item" onclick="saveSelection('SUV', 'Fortuner', 6000 , 'assests/images/vehices/cars/pngwing.com 5 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 5 - Copy.png" alt="Cruiser Bike">
+                    <p><strong>Fortuner</strong></p>
+                    <p>&#8377; 6000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 7 -->
+            <div class="grid-item" onclick="saveSelection('SUV', 'Land Cruiser', 8000 , 'assests/images/vehices/cars/pngwing.com 7 - Copy (2).png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 7 - Copy (2).png" alt="Electric Bike">
+                    <p><strong>Land Cruiser</strong></p>
+                    <p>&#8377; 8000/day</p>
+                </div>
+            </div>
+            <!-- Cycle 8 -->
+            <div class="grid-item" onclick="saveSelection('SUV', 'Prado', 6500 , 'assests/images/vehices/cars/pngwing.com 6 - Copy.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com 6 - Copy.png" alt="Touring Bike">
+                    <p><strong>Prado</strong></p>
+                    <p>&#8377; 6500/day</p>
+                </div>
+            </div>
+            <!-- Cycle 9 -->
+            <div class="grid-item" onclick="saveSelection('Commute', 'i20', 2500 , 'assests/images/vehices/cars/pngwing.com.png')">
+                <div class="opaque-block">
+                    <img src="assests/images/vehices/cars/pngwing.com.png" alt="Kids Bike">
+                    <p><strong>i20</strong></p>
+                    <p>&#8377; 2500/day</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

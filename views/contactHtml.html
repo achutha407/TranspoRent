@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - TranspoRent</title>
+    <link rel="icon" href="assests/images/admins/favicom.png" type="image/png">
+    <link rel="stylesheet" href="assests/css/contactCss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body background="assests/images/background/contact.jpeg">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <h1 class="oswald-header"><b>Contact</b></h1>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-left">
+            <h2 class="oswald-header">Have Questions? Shoot us an Email !</h2>
+            <p><strong>Email:</strong> TranspoRent@vrent.in</p>
+            <p><strong>Phone:</strong> +91 7051491466</p>
+            <p><strong>Address:</strong> 19, 5th Main Rd, PNS Layout, Kammanahalli,<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Bengaluru, Karnataka 560045</p>
+        </div>
+        <div class="contact-right">
+            <h3 class="oswald-header"><b>WE VALUE YOUR FEEDBACK</b></h3>
+            <form id="feedback-form">
+                <textarea placeholder="Your Name" required></textarea>
+                <textarea placeholder="Your Email" required></textarea>
+                <textarea placeholder="Your Feedback" class="feedback-box" required></textarea>
+                <button type="submit" class="submit-btn oswald-header">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <p>Feedback submitted successfully!</p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <script src="assests/js/contactJs.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    line-height: 1.6;
+}
+.oswald-header {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Adjust as needed */
+    font-style: normal;
+  }
+  
+/* Navigation Bar */
+.navbar {
+    background-color: #7FCD91;
+    padding: 20px;
+    text-align: left;
+}
+
+.navbar h1 {
+    color: white;
+    font-size: 32px; /* Increased size */
+    font-weight: bold;
+}
+
+/* Main Content Styling */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    flex-direction: column;
+}
+
+.opaque-block {
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly more opaque */
+    border-radius: 15px; /* Rounded corners increased */
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    width: 85%; /* Increased width */
+    height: 65%;
+}
+
+.opaque-block h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 30px; /* Enlarged heading font size */
+    font-weight: bold;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Increased spacing between items */
+}
+
+.photo-item {
+    text-align: center;
+    width: 200px; /* Increased width of photo containers */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 200px; /* Increased height of images */
+    object-fit: cover;
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1); /* Hover effect enlarged */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.photo-item p {
+    margin-top: 15px; /* Added more spacing */
+    color: #333;
+    font-size: 18px; /* Increased font size for labels */
+    font-weight: bold;
+}
