@@ -35,6 +35,12 @@
 
         // Call loadLocation function on page load
         window.onload = loadLocation;
+
+        // Rent Now button functionality
+        document.getElementById("rentNowBtn").addEventListener("click", function() {
+            // You can add the actual functionality here (e.g., form validation or page navigation)
+            alert("Rent Now button clicked!");
+        });
     </script>
 </head>
 <body background="assests/images/background/home.jpeg">
@@ -110,26 +116,16 @@
 </div>
 
 <!-- Success Dialog -->
-<div id="successDialog" class="popup-dialog">
-    <span class="close-btn" onclick="closeSuccessDialog()">×</span>
-    <div class="message"></div>
+<div id="successDialog2" style="display: none;">
+    <p class="message"></p>
 </div>
 
 <!-- Failure Dialog -->
-<div id="failureDialog" class="popup-dialog" style="background-color: #f44336;">
+<div id="failureDialog2" class="popup-dialog" style="background-color: #f44336;">
     <span class="close-btn" onclick="closeFailureDialog()">×</span>
     <div class="message"></div>
     <button onclick="closeFailureDialog()">OK</button>
 </div>
-
-<div id="failureDialog" style="display: none;">
-    <p class="message"></p>
-</div>
-
-<div id="successDialog" style="display: none;">
-    <p class="message"></p>
-</div>
-
 
     <div class="chatbot-container">
         <!-- FAQ Button -->
